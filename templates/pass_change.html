@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Pass Change {% endblock %}
+{% block body %}
+
+<br>
+<div class="container">
+  <form method="POST">
+    {% if messages %}
+        {% for message in messages %}
+          <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+      {% csrf_token %}
+    <div class="form-outline mb-4">
+      <input type="text"  class="form-control" name="name"/>
+      <label class="form-label" >User Name</label>
+    </div>
+    <div class="form-outline mb-4">
+      <input type="email"  class="form-control" name="email"/>
+      <label class="form-label" >Email</label>
+    </div>
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" class="form-control" name="password" />
+      <label class="form-label"> New Password</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block mb-4">Change Pass</button>
+
+
+  </form>
+</div>
+{% endblock %}
